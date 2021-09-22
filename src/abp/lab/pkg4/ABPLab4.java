@@ -42,7 +42,7 @@ public class ABPLab4 {
             for (int count : fSeq.getNucCounts()) {
                 builder.append(count).append("\t");
             }
-            pw.println(fSeq.getHeader() + "\t" + builder.toString() + "\t" + fSeq.getSequence());
+            pw.println(fSeq.getHeader() + "\t" + builder.toString() + fSeq.getSequence());
         }
         pw.close();
         fw.close();
