@@ -32,7 +32,7 @@ public class FastaSequence {
     
     public static List<FastaSequence> readFastaFile(String filepath) throws Exception {
         Scanner input = new Scanner(new File(filepath));
-        String line = null;
+        String line;
         String header = null;
         StringBuilder sequence = new StringBuilder();
         char posChar;
