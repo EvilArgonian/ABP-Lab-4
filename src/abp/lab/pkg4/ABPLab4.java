@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package abp.lab.pkg4;
 
 import java.io.File;
@@ -18,6 +13,7 @@ public class ABPLab4 {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.Exception
      */
     public static void main(String[] args) throws Exception {
          List<FastaSequence> fastaList = 
@@ -44,7 +40,7 @@ public class ABPLab4 {
         for (FastaSequence fSeq : list) {
             builder = new StringBuilder();
             for (int count : fSeq.getNucCounts()) {
-                builder.append(count+"\t");
+                builder.append(count).append("\t");
             }
             pw.println(fSeq.getHeader() + "\t" + builder.toString() + "\t" + fSeq.getSequence());
         }

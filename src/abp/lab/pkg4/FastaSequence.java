@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package abp.lab.pkg4;
 
 import java.io.File;
@@ -15,14 +10,22 @@ import java.util.Scanner;
  * @author pmele
  */
 public class FastaSequence {
-    private String header;
-    private String sequence;
-    private int[] nucCount = new int[6]; //A C G T Gaps Undetermined
+    private final String header;
+    private final String sequence;
+    private final int[] nucCount; //A C G T Gaps Undetermined
 
-    public FastaSequence(String header, String sequence, int[] nucCount) {
+    public FastaSequence(String header, String sequence, int[] nucCount) throws Exception {
+        if (nucCount.length != 6 && nucCount.length != 4) {
+            throw new Exception("Expecting an input nucleotide count array with 4 or 6 entries: A, C, G, T, and optionally Gaps and Undetermined.");
+        }
+        
         this.header = header;
         this.sequence = sequence;
-        this.nucCount = nucCount;
+        if (nucCount.length == 4) {
+            this.nucCount = new int[]{nucCount[0], nucCount[1], nucCount[2], nucCount[3], 0, 0};
+        } else {
+            this.nucCount = nucCount;
+        }
     }
     
     
